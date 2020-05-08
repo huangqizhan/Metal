@@ -67,12 +67,34 @@ open class MetalRenderTarget {
     
     internal func updateBuffer(width size : CGSize ) {
         self.drawableSize = size
-        let matrix = Matrix.identify
+        let metrix = Matrix.identify
+        let zoomUniform = 2 * Float(zoom / scale )
+        metrix.scaling(x: zoomUniform  / Float(size.width), y: -zoomUniform / Float(size.height), z: 1)
+        metrix.translation(x: -1, y: 1, z: 0)
+        uniform_buffer = device?.makeBuffer(bytes: metrix.m, length: MemoryLayout<Float>.size * 16, options: [])
         
+        updateTransformBuffer()
     }
     
     internal func updateTransformBuffer() {
+        let scaleFactor = UIScreen.main.nativeScale
+        var scrollTransform = ScrollintTransform(offset: contentOffset, scale: scaleFactor)
+        transform_buffer = device?.makeBuffer(bytes: &scrollTransform, length: MemoryLayout<ScrollintTransform>.stride, options: [])
     }
+    
+    internal func prepareForDraw(){
+        if commandBuffer == nil {
+            commandBuffer = commandQueue?.makeCommandBuffer()
+        }
+    }
+    
+    internal func makeCommandEncoder() -> MTLRenderCommandEncoder? {
+        guard let commandBuffer = commandBuffer , let rpd = renderPassDescriptor else {
+            return nil
+        }
+        return commandBuffer.makeRenderCommandEncoder(descriptor: rpd)
+    }
+    
     internal func commitCommand(){
         commandBuffer?.commit()
         commandBuffer = nil
@@ -80,18 +102,16 @@ open class MetalRenderTarget {
     }
     
     internal func makeEmptyTexture() -> MTLTexture? {
-//       guard drawableSize.width * drawableSize.height > 0 else {
-//             return nil
-//         }
-//         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat,
-//                                                                          width: Int(drawableSize.width),
-//                                                                          height: Int(drawableSize.height),
-//                                                                          mipmapped: false)
-//         textureDescriptor.usage = [.renderTarget, .shaderRead]
-//         let texture = device?.makeTexture(descriptor: textureDescriptor)
-//         texture?.clear()
-//         return texture
-        return nil;
+       guard drawableSize.width * drawableSize.height > 0 else {
+             return nil
+         }
+         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat,
+                                                                          width: Int(drawableSize.width),
+                                                                          height: Int(drawableSize.height),
+                                                                          mipmapped: false)
+         textureDescriptor.usage = [.renderTarget, .shaderRead]
+         let texture = device?.makeTexture(descriptor: textureDescriptor)
+         texture?.clear()
+         return texture
     }
-    
 }

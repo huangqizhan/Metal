@@ -8,25 +8,15 @@
 
 import UIKit
 
-class Tmodel {
-    var vale : Float = 1{
-        didSet{
-            print("didset")
-        }
-    }
-}
-
-
 class RootViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tmodel = Tmodel.init()
-        print("vale = \(tmodel.vale)")
-        tmodel.vale = 2.2;
-        
-        print("vale = \(tmodel.vale)")
+//        let scale = UIScreen.main.scale
+//        print("scale \(scale)")
+//        let scaleFactor = UIScreen.main.nativeScale
+//        print("scale \(scaleFactor)")
         
     }
 }
