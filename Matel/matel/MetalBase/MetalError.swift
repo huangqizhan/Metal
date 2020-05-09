@@ -9,7 +9,7 @@
 import Foundation
 
 /// 错误
-enum MetalError {
+enum MetalError : Error {
     
     /// 文件不存在
     case fileNotExist(String)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6625A34024668FCF0026CAD1 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A33F24668FCF0026CAD1 /* MetalView.swift */; };
 		665CBA702463F432005F8123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA6F2463F432005F8123 /* AppDelegate.swift */; };
 		665CBA722463F432005F8123 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA712463F432005F8123 /* SceneDelegate.swift */; };
 		665CBA772463F432005F8123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665CBA752463F432005F8123 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6625A33F24668FCF0026CAD1 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		665CBA6C2463F432005F8123 /* Matel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		665CBA6F2463F432005F8123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		665CBA712463F432005F8123 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				665CBA992464FCB9005F8123 /* MetalError.swift */,
 				665CBA9B2464FE23005F8123 /* MetalTexture.swift */,
 				665CBA9D246501F9005F8123 /* MetalRenderTarget.swift */,
+				6625A33F24668FCF0026CAD1 /* MetalView.swift */,
 			);
 			path = MetalBase;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				665CBA9C2464FE23005F8123 /* MetalTexture.swift in Sources */,
 				665CBA982464F026005F8123 /* MetalColor.swift in Sources */,
 				665CBA8C246409E1005F8123 /* RootViewController.swift in Sources */,
+				6625A34024668FCF0026CAD1 /* MetalView.swift in Sources */,
 				665CBA702463F432005F8123 /* AppDelegate.swift in Sources */,
 				665CBA842464097F005F8123 /* SingleViewController.swift in Sources */,
 				665CBA9A2464FCB9005F8123 /* MetalError.swift in Sources */,
