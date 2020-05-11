@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		6625A34024668FCF0026CAD1 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A33F24668FCF0026CAD1 /* MetalView.swift */; };
+		6625A3422468DDA90026CAD1 /* MetalPaintingGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A3412468DDA90026CAD1 /* MetalPaintingGestureRecognizer.swift */; };
+		6625A3442468DE590026CAD1 /* MetalBezierGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A3432468DE590026CAD1 /* MetalBezierGenerator.swift */; };
+		6625A3482468E5BF0026CAD1 /* MetalShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6625A3472468E5BF0026CAD1 /* MetalShader.metal */; };
+		6625A34A2468E5F90026CAD1 /* MetalSnapShortTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A3492468E5F90026CAD1 /* MetalSnapShortTarget.swift */; };
+		6625A34D2468E7380026CAD1 /* MetalBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A34C2468E7380026CAD1 /* MetalBrush.swift */; };
+		6625A34F2468EFA40026CAD1 /* TSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A34E2468EFA40026CAD1 /* TSwift.swift */; };
+		6625A3522468FC1C0026CAD1 /* MetalCanvasData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A3512468FC1C0026CAD1 /* MetalCanvasData.swift */; };
+		6625A35524691F110026CAD1 /* MetalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A35424691F110026CAD1 /* MetalLine.swift */; };
+		6625A357246926B30026CAD1 /* MetalLineStripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A356246926B30026CAD1 /* MetalLineStripe.swift */; };
+		6625A359246937F50026CAD1 /* MetalChartlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A358246937F50026CAD1 /* MetalChartlet.swift */; };
+		6625A35B24693A880026CAD1 /* MetalDataObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A35A24693A880026CAD1 /* MetalDataObserver.swift */; };
+		6625A35D2469480E0026CAD1 /* MetalActionIObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A35C2469480E0026CAD1 /* MetalActionIObserve.swift */; };
+		6625A35F24694AEE0026CAD1 /* MetalPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625A35E24694AEE0026CAD1 /* MetalPrinter.swift */; };
 		665CBA702463F432005F8123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA6F2463F432005F8123 /* AppDelegate.swift */; };
 		665CBA722463F432005F8123 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA712463F432005F8123 /* SceneDelegate.swift */; };
 		665CBA772463F432005F8123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665CBA752463F432005F8123 /* Main.storyboard */; };
@@ -18,19 +31,31 @@
 		665CBA88246409A5005F8123 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA87246409A5005F8123 /* ScrollViewController.swift */; };
 		665CBA8A246409B0005F8123 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA89246409B0005F8123 /* ImageViewController.swift */; };
 		665CBA8C246409E1005F8123 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA8B246409E1005F8123 /* RootViewController.swift */; };
-		665CBA90246419CE005F8123 /* WeakObjectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA8F246419CE005F8123 /* WeakObjectBox.swift */; };
+		665CBA90246419CE005F8123 /* MetalWeakObjectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA8F246419CE005F8123 /* MetalWeakObjectBox.swift */; };
 		665CBA9224641D84005F8123 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9124641D84005F8123 /* Utils.swift */; };
-		665CBA9524641ED5005F8123 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9424641ED5005F8123 /* Canvas.swift */; };
+		665CBA9524641ED5005F8123 /* MetalCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9424641ED5005F8123 /* MetalCanvas.swift */; };
 		665CBA982464F026005F8123 /* MetalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA972464F026005F8123 /* MetalColor.swift */; };
 		665CBA9A2464FCB9005F8123 /* MetalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA992464FCB9005F8123 /* MetalError.swift */; };
 		665CBA9C2464FE23005F8123 /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9B2464FE23005F8123 /* MetalTexture.swift */; };
 		665CBA9E246501F9005F8123 /* MetalRenderTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9D246501F9005F8123 /* MetalRenderTarget.swift */; };
 		665CBAA02465058E005F8123 /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9F2465058E005F8123 /* Maths.swift */; };
-		BA64B3D52467FCEB0087C465 /* MetalPaintintGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64B3D42467FCEB0087C465 /* MetalPaintintGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6625A33F24668FCF0026CAD1 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		6625A3412468DDA90026CAD1 /* MetalPaintingGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPaintingGestureRecognizer.swift; sourceTree = "<group>"; };
+		6625A3432468DE590026CAD1 /* MetalBezierGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalBezierGenerator.swift; sourceTree = "<group>"; };
+		6625A3472468E5BF0026CAD1 /* MetalShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MetalShader.metal; sourceTree = "<group>"; };
+		6625A3492468E5F90026CAD1 /* MetalSnapShortTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalSnapShortTarget.swift; sourceTree = "<group>"; };
+		6625A34C2468E7380026CAD1 /* MetalBrush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalBrush.swift; sourceTree = "<group>"; };
+		6625A34E2468EFA40026CAD1 /* TSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSwift.swift; sourceTree = "<group>"; };
+		6625A3512468FC1C0026CAD1 /* MetalCanvasData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalCanvasData.swift; sourceTree = "<group>"; };
+		6625A35424691F110026CAD1 /* MetalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLine.swift; sourceTree = "<group>"; };
+		6625A356246926B30026CAD1 /* MetalLineStripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLineStripe.swift; sourceTree = "<group>"; };
+		6625A358246937F50026CAD1 /* MetalChartlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalChartlet.swift; sourceTree = "<group>"; };
+		6625A35A24693A880026CAD1 /* MetalDataObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDataObserver.swift; sourceTree = "<group>"; };
+		6625A35C2469480E0026CAD1 /* MetalActionIObserve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalActionIObserve.swift; sourceTree = "<group>"; };
+		6625A35E24694AEE0026CAD1 /* MetalPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPrinter.swift; sourceTree = "<group>"; };
 		665CBA6C2463F432005F8123 /* Matel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		665CBA6F2463F432005F8123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		665CBA712463F432005F8123 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,15 +68,14 @@
 		665CBA87246409A5005F8123 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		665CBA89246409B0005F8123 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		665CBA8B246409E1005F8123 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		665CBA8F246419CE005F8123 /* WeakObjectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakObjectBox.swift; sourceTree = "<group>"; };
+		665CBA8F246419CE005F8123 /* MetalWeakObjectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalWeakObjectBox.swift; sourceTree = "<group>"; };
 		665CBA9124641D84005F8123 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		665CBA9424641ED5005F8123 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		665CBA9424641ED5005F8123 /* MetalCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalCanvas.swift; sourceTree = "<group>"; };
 		665CBA972464F026005F8123 /* MetalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalColor.swift; sourceTree = "<group>"; };
 		665CBA992464FCB9005F8123 /* MetalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalError.swift; sourceTree = "<group>"; };
 		665CBA9B2464FE23005F8123 /* MetalTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
 		665CBA9D246501F9005F8123 /* MetalRenderTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalRenderTarget.swift; sourceTree = "<group>"; };
 		665CBA9F2465058E005F8123 /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
-		BA64B3D42467FCEB0087C465 /* MetalPaintintGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPaintintGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +89,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6625A34B2468E70E0026CAD1 /* Brush */ = {
+			isa = PBXGroup;
+			children = (
+				6625A34C2468E7380026CAD1 /* MetalBrush.swift */,
+				6625A35E24694AEE0026CAD1 /* MetalPrinter.swift */,
+			);
+			path = Brush;
+			sourceTree = "<group>";
+		};
+		6625A3502468FBCD0026CAD1 /* Data & Documents */ = {
+			isa = PBXGroup;
+			children = (
+				6625A3512468FC1C0026CAD1 /* MetalCanvasData.swift */,
+				6625A35A24693A880026CAD1 /* MetalDataObserver.swift */,
+			);
+			path = "Data & Documents";
+			sourceTree = "<group>";
+		};
+		6625A35324691ED00026CAD1 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				6625A35424691F110026CAD1 /* MetalLine.swift */,
+				6625A356246926B30026CAD1 /* MetalLineStripe.swift */,
+				6625A358246937F50026CAD1 /* MetalChartlet.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		665CBA632463F432005F8123 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +139,7 @@
 				665CBA8D24641961005F8123 /* matel */,
 				665CBA6F2463F432005F8123 /* AppDelegate.swift */,
 				665CBA712463F432005F8123 /* SceneDelegate.swift */,
+				6625A34E2468EFA40026CAD1 /* TSwift.swift */,
 				665CBA752463F432005F8123 /* Main.storyboard */,
 				665CBA8B246409E1005F8123 /* RootViewController.swift */,
 				665CBA832464097F005F8123 /* SingleViewController.swift */,
@@ -103,6 +156,9 @@
 		665CBA8D24641961005F8123 /* matel */ = {
 			isa = PBXGroup;
 			children = (
+				6625A35324691ED00026CAD1 /* Elements */,
+				6625A3502468FBCD0026CAD1 /* Data & Documents */,
+				6625A34B2468E70E0026CAD1 /* Brush */,
 				665CBA962464F00A005F8123 /* MetalBase */,
 				665CBA9324641EBD005F8123 /* Canvas */,
 				665CBA8E24641989005F8123 /* Utils */,
@@ -113,10 +169,11 @@
 		665CBA8E24641989005F8123 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				665CBA8F246419CE005F8123 /* WeakObjectBox.swift */,
+				665CBA8F246419CE005F8123 /* MetalWeakObjectBox.swift */,
 				665CBA9124641D84005F8123 /* Utils.swift */,
 				665CBA9F2465058E005F8123 /* Maths.swift */,
-				BA64B3D42467FCEB0087C465 /* MetalPaintintGestureRecognizer.swift */,
+				6625A3412468DDA90026CAD1 /* MetalPaintingGestureRecognizer.swift */,
+				6625A3432468DE590026CAD1 /* MetalBezierGenerator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -124,7 +181,8 @@
 		665CBA9324641EBD005F8123 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				665CBA9424641ED5005F8123 /* Canvas.swift */,
+				665CBA9424641ED5005F8123 /* MetalCanvas.swift */,
+				6625A35C2469480E0026CAD1 /* MetalActionIObserve.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -137,6 +195,8 @@
 				665CBA9B2464FE23005F8123 /* MetalTexture.swift */,
 				665CBA9D246501F9005F8123 /* MetalRenderTarget.swift */,
 				6625A33F24668FCF0026CAD1 /* MetalView.swift */,
+				6625A3472468E5BF0026CAD1 /* MetalShader.metal */,
+				6625A3492468E5F90026CAD1 /* MetalSnapShortTarget.swift */,
 			);
 			path = MetalBase;
 			sourceTree = "<group>";
@@ -215,18 +275,30 @@
 				665CBA88246409A5005F8123 /* ScrollViewController.swift in Sources */,
 				665CBA862464099A005F8123 /* ScaleViewController.swift in Sources */,
 				665CBA9E246501F9005F8123 /* MetalRenderTarget.swift in Sources */,
+				6625A35F24694AEE0026CAD1 /* MetalPrinter.swift in Sources */,
 				665CBA9224641D84005F8123 /* Utils.swift in Sources */,
 				665CBA8A246409B0005F8123 /* ImageViewController.swift in Sources */,
 				665CBA9C2464FE23005F8123 /* MetalTexture.swift in Sources */,
 				665CBA982464F026005F8123 /* MetalColor.swift in Sources */,
 				665CBA8C246409E1005F8123 /* RootViewController.swift in Sources */,
 				6625A34024668FCF0026CAD1 /* MetalView.swift in Sources */,
+				6625A34A2468E5F90026CAD1 /* MetalSnapShortTarget.swift in Sources */,
+				6625A359246937F50026CAD1 /* MetalChartlet.swift in Sources */,
+				6625A3522468FC1C0026CAD1 /* MetalCanvasData.swift in Sources */,
+				6625A34D2468E7380026CAD1 /* MetalBrush.swift in Sources */,
+				6625A3482468E5BF0026CAD1 /* MetalShader.metal in Sources */,
+				6625A34F2468EFA40026CAD1 /* TSwift.swift in Sources */,
 				665CBA702463F432005F8123 /* AppDelegate.swift in Sources */,
-				BA64B3D52467FCEB0087C465 /* MetalPaintintGestureRecognizer.swift in Sources */,
 				665CBA842464097F005F8123 /* SingleViewController.swift in Sources */,
 				665CBA9A2464FCB9005F8123 /* MetalError.swift in Sources */,
-				665CBA90246419CE005F8123 /* WeakObjectBox.swift in Sources */,
-				665CBA9524641ED5005F8123 /* Canvas.swift in Sources */,
+				6625A35B24693A880026CAD1 /* MetalDataObserver.swift in Sources */,
+				665CBA90246419CE005F8123 /* MetalWeakObjectBox.swift in Sources */,
+				6625A357246926B30026CAD1 /* MetalLineStripe.swift in Sources */,
+				665CBA9524641ED5005F8123 /* MetalCanvas.swift in Sources */,
+				6625A3442468DE590026CAD1 /* MetalBezierGenerator.swift in Sources */,
+				6625A3422468DDA90026CAD1 /* MetalPaintingGestureRecognizer.swift in Sources */,
+				6625A35D2469480E0026CAD1 /* MetalActionIObserve.swift in Sources */,
+				6625A35524691F110026CAD1 /* MetalLine.swift in Sources */,
 				665CBAA02465058E005F8123 /* Maths.swift in Sources */,
 				665CBA722463F432005F8123 /* SceneDelegate.swift in Sources */,
 			);
@@ -375,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UGE5C8L29T;
 				INFOPLIST_FILE = Matel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UGE5C8L29T;
 				INFOPLIST_FILE = Matel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

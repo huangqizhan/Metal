@@ -142,8 +142,8 @@ open class MetalView: MTKView {
         commandEncoder?.setVertexBuffer(render_target_vertex, offset: 0, index: 0)
         commandEncoder?.setVertexBuffer(render_target_uniform, offset: 0, index: 1)
         
-        /// 设置片段着色器的参数
-        commandEncoder?.setFragmentBuffer(render_target_uniform, offset: 0, index: 0)
+        /// 设置片段着色器的纹理
+        commandEncoder?.setFragmentTexture(texture, index: 0)
         commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 4)
         commandEncoder?.endEncoding()
         if let drawable = currentDrawable {
