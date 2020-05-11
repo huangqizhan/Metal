@@ -8,37 +8,27 @@
 
 import UIKit
 
-class Tmodel {
-    
-    var name : String = "123"
-    
-    init() {
-    }
-    
-    static func ac1(){
-        
-    }
-    class func ac2(){
-        
-    }
-    
-}
-
-
-
 class RootViewController: UITableViewController {
 
+    enum CodingKeys: String, CodingKey {
+        case begin
+        case end
+        case size
+        case step
+        case color
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Tmodel.ac1()
-        Tmodel.ac2()
-        
         
 //        let scale = UIScreen.main.scale
 //        print("scale \(scale)")
 //        let scaleFactor = UIScreen.main.nativeScale
 //        print("scale \(scaleFactor)")
+        
+        
         
     }
 }

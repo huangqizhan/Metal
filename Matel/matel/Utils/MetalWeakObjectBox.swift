@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class WeakObjectBox {
+final class MetalWeakObjectBox {
     weak var unboxed : AnyObject?
     
     init(_ boxed : AnyObject?) {
@@ -17,21 +17,19 @@ final class WeakObjectBox {
     
 }
 
-class WeakObjectsPool {
-    
+class MetalWeakObjectsPool {
     /////    compactMap     遍历不会nil
-    
-    private var boxes : [WeakObjectBox] = []
+    private var boxes : [MetalWeakObjectBox] = []
     
     func addObjec(object : AnyObject?) {
-        self.boxes.append(WeakObjectBox(object))
+        self.boxes.append(MetalWeakObjectBox(object))
     }
     /// 清空 unboex ==  nil
     func clean() {
         boxes = boxes.compactMap({ $0.unboxed == nil ? nil : $0 })
     }
     /// 清空有 WeakObjectBox ==  nil
-    func alive() -> [AnyObject] {
+    var aliveObjects : [AnyObject] {
         return boxes.compactMap({$0.unboxed})
     }
     
