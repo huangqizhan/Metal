@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MetalPaintingGestureRecognizer: UIPanGestureRecognizer {
+open class MetalPaintingGestureRecognizer: UIPanGestureRecognizer {
     private weak var targetView: UIView!
     
     /// 当前压力值，启用压力感应时，使用真实的压力，否则使用模拟压感

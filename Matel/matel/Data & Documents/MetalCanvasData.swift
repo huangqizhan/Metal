@@ -10,14 +10,14 @@ import UIKit
 
 public protocol MetalCanvasElement : Codable{
     var index : Int {get set}
-    func drawSelf(on target: MetalRenderTarget)
+    func drawSelf(on target: MetalRenderTarget?)
 }
 
 public struct MetalClearAction : MetalCanvasElement {
     
     public var index: Int = 0
-    public func drawSelf(on target: MetalRenderTarget) {
-        target.clear()
+    public func drawSelf(on target: MetalRenderTarget?) {
+        target?.clear()
     }
 }
 /// 画布数据 （线条 / 图片 ）

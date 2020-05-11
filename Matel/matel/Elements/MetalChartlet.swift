@@ -11,7 +11,7 @@ import UIKit
 open class MetalChartlet: MetalCanvasElement {
     public var index: Int = 0
     
-    public func drawSelf(on target: MetalRenderTarget) {
+    public func drawSelf(on target: MetalRenderTarget?) {
         
     }
     

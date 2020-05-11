@@ -40,7 +40,7 @@ open class MetalLineStripe : MetalCanvasElement  {
         vertex_buffer = nil
     }
     
-    public func drawSelf(on target: MetalRenderTarget) {
+    public func drawSelf(on target: MetalRenderTarget?) {
         brush?.render(lineStrip: self, on: target)
     }
     
