@@ -2,8 +2,8 @@
 //  MetalRenderTarget.swift
 //  Matel
 //
-//  Created by 8km_mac_mini on 2020/5/8.
-//  Copyright © 2020 8km_mac_mini. All rights reserved.
+//  Created by 黄麒展 on 2020/5/8.
+//  Copyright © 2020 黄麒展. All rights reserved.
 //
 
 import UIKit
@@ -16,13 +16,13 @@ open class MetalRenderTarget {
     
     public private(set) var texture : MTLTexture?
     
-    open var scale : CGFloat = 1.0 {
+    open var scale : CGFloat = 1 {
         didSet{
             updateTransformBuffer()
         }
     }
     
-    open var zoom : CGFloat = 1.0
+    open var zoom : CGFloat = 1
     
     open var contentOffset : CGPoint = .zero {
         didSet{
@@ -78,7 +78,7 @@ open class MetalRenderTarget {
     
     internal func updateTransformBuffer() {
         let scaleFactor = UIScreen.main.nativeScale
-        var scrollTransform = ScrollintTransform(offset: contentOffset, scale: scaleFactor)
+        var scrollTransform = ScrollintTransform(offset: contentOffset * scaleFactor, scale: scale)
         transform_buffer = device?.makeBuffer(bytes: &scrollTransform, length: MemoryLayout<ScrollintTransform>.stride, options: [])
     }
     

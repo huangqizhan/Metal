@@ -2,8 +2,8 @@
 //  SingleViewController.swift
 //  Matel
 //
-//  Created by 8km_mac_mini on 2020/5/7.
-//  Copyright © 2020 8km_mac_mini. All rights reserved.
+//  Created by 黄麒展 on 2020/5/7.
+//  Copyright © 2020 黄麒展. All rights reserved.
 //
 
 import UIKit

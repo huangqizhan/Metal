@@ -2,8 +2,8 @@
 //  MetalView.swift
 //  Matel
 //
-//  Created by 8km_mac_mini on 2020/5/9.
-//  Copyright © 2020 8km_mac_mini. All rights reserved.
+//  Created by 黄麒展 on 2020/5/9.
+//  Copyright © 2020 黄麒展. All rights reserved.
 //
 
 import UIKit
@@ -102,7 +102,7 @@ open class MetalView: MTKView {
         render_target_vertex = device?.makeBuffer(bytes: vertexes, length: MemoryLayout<Vertex>.stride * vertexes.count, options: [.cpuCacheModeWriteCombined])
         
         let mritex = Matrix.identify
-        mritex.scaling(x: 2 / Float(w), y: -2 / Float(h), z: 1)
+        mritex.scaling(x: 2 / Float(size.width), y: -2 / Float(size.height), z: 1)
         mritex.translation(x: -1, y: 1, z: 0)
         render_target_uniform = device?.makeBuffer(bytes: mritex.m, length: MemoryLayout<Float>.size * 16, options: [])
     }
@@ -129,8 +129,9 @@ open class MetalView: MTKView {
         }
         let renderpassdescriptor = MTLRenderPassDescriptor()
         let attachment = renderpassdescriptor.colorAttachments[0]
+        clearColor = UIColor.red.toMetalClearColor()
         attachment?.clearColor = clearColor
-        attachment?.texture = attachment?.texture
+        attachment?.texture = currentDrawable?.texture
         attachment?.loadAction = .load
         attachment?.storeAction = .store
         
@@ -144,7 +145,7 @@ open class MetalView: MTKView {
         
         /// 设置片段着色器的纹理
         commandEncoder?.setFragmentTexture(texture, index: 0)
-        commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 4)
+        commandEncoder?.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
         commandEncoder?.endEncoding()
         if let drawable = currentDrawable {
             commanderBuffer?.present(drawable)

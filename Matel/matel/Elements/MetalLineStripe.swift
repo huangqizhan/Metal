@@ -2,8 +2,8 @@
 //  MetalLineStripe.swift
 //  Matel
 //
-//  Created by 8km_mac_mini on 2020/5/11.
-//  Copyright © 2020 8km_mac_mini. All rights reserved.
+//  Created by 黄麒展 on 2020/5/11.
+//  Copyright © 2020 黄麒展. All rights reserved.
 //
 
 import UIKit
@@ -34,6 +34,7 @@ open class MetalLineStripe : MetalCanvasElement  {
         self.lines = lines
         self.brush = brush
         self.color = brush.renderColor
+        remakeBuffer(rotation: brush.rotation)
     }
     open func append(lines : [MetalLine ]){
         self.lines.append(contentsOf: lines)
@@ -69,7 +70,7 @@ open class MetalLineStripe : MetalCanvasElement  {
                 let index = CGFloat(i)
                 let x = line.begin.x + (line.end.x - line.begin.x) * (index / count)
                 let y = line.begin.y + (line.end.y - line.begin.y) * (index / count)
-                
+                print(" x : \(x) y: \(y)")
                 var angle: CGFloat = 0
                 switch rotation {
                 case let .fixed(a): angle = a

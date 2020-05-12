@@ -2,8 +2,8 @@
 //  MetalBrush.swift
 //  Matel
 //
-//  Created by 8km_mac_mini on 2020/5/11.
-//  Copyright © 2020 8km_mac_mini. All rights reserved.
+//  Created by 黄麒展 on 2020/5/11.
+//  Copyright © 2020 黄麒展. All rights reserved.
 //
 
 import UIKit
@@ -81,7 +81,7 @@ open class MetalBrush {
         target?.currentBrush = self
     }
     
-    open func maleLine(from : MetalPan , to : MetalPan) ->[MetalLine]{
+    open func makeLine(from : MetalPan , to : MetalPan) ->[MetalLine]{
         let endFoece = from.force * 0.95 + to.force*0.05
         let forceRate = pow(endFoece, forceSensitive)
         return makeLine(from: from.point, to: to.point , force: forceRate)
@@ -161,8 +161,8 @@ open class MetalBrush {
         
         guard let vertex_buffer = lineStrip.remakeVertexBuffers(rotation: rotation) else { return }
         commandencoder?.setVertexBuffer(vertex_buffer, offset: 0, index: 0)
-        commandencoder?.setVertexBuffer(target.transform_buffer, offset: 0, index: 1)
-        commandencoder?.setVertexBuffer(target.uniform_buffer, offset: 0, index: 2)
+        commandencoder?.setVertexBuffer(target.uniform_buffer, offset: 0, index: 1)
+        commandencoder?.setVertexBuffer(target.transform_buffer, offset: 0, index: 2)
         if let texture = texture{
             commandencoder?.setFragmentTexture(texture, index: 0)
         }

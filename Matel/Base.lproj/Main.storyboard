@@ -158,7 +158,19 @@
                     <view key="view" contentMode="scaleToFill" id="0Rg-Kt-OSe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhu-de-Ecc" customClass="MetalCanvas" customModule="Matel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Zhu-de-Ecc" firstAttribute="top" secondItem="YF6-za-ice" secondAttribute="top" id="MdD-6W-ees"/>
+                            <constraint firstItem="YF6-za-ice" firstAttribute="bottom" secondItem="Zhu-de-Ecc" secondAttribute="bottom" id="R9p-P9-g50"/>
+                            <constraint firstItem="YF6-za-ice" firstAttribute="trailing" secondItem="Zhu-de-Ecc" secondAttribute="trailing" id="boh-7i-dad"/>
+                            <constraint firstItem="Zhu-de-Ecc" firstAttribute="leading" secondItem="YF6-za-ice" secondAttribute="leading" id="oqj-64-i95"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YF6-za-ice"/>
                     </view>
                     <navigationItem key="navigationItem" title="Single" id="AYd-w4-Kce"/>
