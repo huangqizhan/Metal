@@ -38,6 +38,10 @@ open class MetalView: MTKView {
         return try makeTexture(with: data , id:id)
     }
     
+    internal func getPipelineState() ->MTLRenderPipelineState {
+        return self.pipelineState
+    }
+    
     //MARK: ---  清空画布
     func clear(display : Bool = true) {
         screenRender?.clear()
@@ -77,8 +81,8 @@ open class MetalView: MTKView {
         device = shareDevide
         isOpaque = false
         
-        screenRender = MetalRenderTarget(size: drawableSize, pixelFormat: colorPixelFormat, device: device)
         commandQueue = device?.makeCommandQueue()
+        screenRender = MetalRenderTarget(size: drawableSize, pixelFormat: colorPixelFormat, device: device ,queue: commandQueue)
         setRenderTatgetUniformData()
         
         do {
@@ -108,7 +112,7 @@ open class MetalView: MTKView {
     }
     
     // MARK: 创建渲染管线
-    private func setPipelineState() throws{
+    private func setPipelineState() throws {
         let library = device?.libraryForMetal()
         /// 着色器
         let vertex_fun = library?.makeFunction(name: "vertex_render_target")
@@ -123,26 +127,25 @@ open class MetalView: MTKView {
     
     open override func draw() {
         super.draw()
-        
+
         guard metalavaliable, let render = screenRender , render.modified ,let texture = render.texture else {
             return
         }
         let renderpassdescriptor = MTLRenderPassDescriptor()
         let attachment = renderpassdescriptor.colorAttachments[0]
-        clearColor = UIColor.red.toMetalClearColor()
         attachment?.clearColor = clearColor
         attachment?.texture = currentDrawable?.texture
         attachment?.loadAction = .load
         attachment?.storeAction = .store
-        
+
         let commanderBuffer = commandQueue?.makeCommandBuffer()
         let commandEncoder = commanderBuffer?.makeRenderCommandEncoder(descriptor:renderpassdescriptor)
-        
+
         commandEncoder?.setRenderPipelineState(pipelineState)
         /// 设置顶点着色器的参数
         commandEncoder?.setVertexBuffer(render_target_vertex, offset: 0, index: 0)
         commandEncoder?.setVertexBuffer(render_target_uniform, offset: 0, index: 1)
-        
+
         /// 设置片段着色器的纹理
         commandEncoder?.setFragmentTexture(texture, index: 0)
         commandEncoder?.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
@@ -151,11 +154,9 @@ open class MetalView: MTKView {
             commanderBuffer?.present(drawable)
         }
         commanderBuffer?.commit()
-        render.modified = true
+        render.modified = false
     }
 }
-
-
 
 internal var metalavaliable: Bool = {
     #if targetEnvironment(simulator)

@@ -11,11 +11,11 @@ import Foundation
 import Metal
 import simd
 
-
+/// 主要负责渲染 
 open class MetalRenderTarget {
     
+    /// 背景纹理
     public private(set) var texture : MTLTexture?
-    
     open var scale : CGFloat = 1 {
         didSet{
             updateTransformBuffer()
@@ -46,12 +46,13 @@ open class MetalRenderTarget {
     internal var device: MTLDevice?
     internal var modified = false
     
-    public init (size: CGSize , pixelFormat : MTLPixelFormat , device : MTLDevice?){
+    public init (size: CGSize , pixelFormat : MTLPixelFormat , device : MTLDevice? , queue: MTLCommandQueue?){
         self.drawableSize = size
         self.device = device
         self.texture = makeEmptyTexture()
         self.pixelFormat = pixelFormat
-        self.commandQueue = self.device?.makeCommandQueue()
+        self.commandQueue = queue
+//        self.commandQueue = self.device?.makeCommandQueue()
         renderPassDescriptor = MTLRenderPassDescriptor()
         let attachment = renderPassDescriptor?.colorAttachments[0]
         attachment?.texture = texture
@@ -105,13 +106,20 @@ open class MetalRenderTarget {
        guard drawableSize.width * drawableSize.height > 0 else {
              return nil
          }
-         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat,
-                                                                          width: Int(drawableSize.width),
-                                                                          height: Int(drawableSize.height),
-                                                                          mipmapped: false)
+         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat, width: Int(drawableSize.width), height: Int(drawableSize.height), mipmapped: false)
          textureDescriptor.usage = [.renderTarget, .shaderRead]
          let texture = device?.makeTexture(descriptor: textureDescriptor)
          texture?.clear()
          return texture
     }
 }
+
+
+/*
+ 
+ MTLVertexDescriptor是用来描述如何组织顶点数据以及如何映射到shader中顶点着色函数的对象。
+ 
+ 一个MTLVertexDescriptor对象用来配置顶点数据如何在内存中存储，以及映射到vertex shader中的attribute属性上。
+ 
+ 
+ */

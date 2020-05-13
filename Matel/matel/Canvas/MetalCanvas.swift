@@ -232,7 +232,6 @@ open class MetalCanvas : MetalView {
         let pan = MetalPan(touch: touch, on: self)
         lastRenderedPan = pan
         guard renderingDelegate?.canvas(self, shouldBeginLineAt: pan.point, force: pan.force) ?? true else { return }
-        print("begin x : \(pan.point.x) y : \(pan.point.y)")
         bezierGenerator.begin(with: pan.point)
         pushPoint(pan.point, to: bezierGenerator, force: pan.force)
         actionObserves.canvas(self, didBeginLineAt: pan.point, force: pan.force)

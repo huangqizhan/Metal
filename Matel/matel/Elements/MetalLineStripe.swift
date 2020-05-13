@@ -70,7 +70,6 @@ open class MetalLineStripe : MetalCanvasElement  {
                 let index = CGFloat(i)
                 let x = line.begin.x + (line.end.x - line.begin.x) * (index / count)
                 let y = line.begin.y + (line.end.y - line.begin.y) * (index / count)
-                print(" x : \(x) y: \(y)")
                 var angle: CGFloat = 0
                 switch rotation {
                 case let .fixed(a): angle = a

@@ -8,11 +8,10 @@
 
 import UIKit
 
+/// 手势拖动的数据结构
 public struct MetalPan{
-    
     var point : CGPoint
     var force : CGFloat
-    
     
     init(touch : UITouch , on view : UIView) {
         if #available(iOS 9.1, *) {
@@ -30,8 +29,8 @@ public struct MetalPan{
         self.point = point
         self.force = force
     }
-    
 }
+
 
 open class MetalBrush {
     
@@ -42,16 +41,22 @@ open class MetalBrush {
     }
     
     open var name : String
+    // 纹理ID
     open private(set) var textureId : String?
+    // canvas
     open private(set) weak var target : MetalCanvas?
-    open var pointSize: CGFloat = 4
-    open var pointStep: CGFloat = 1
+    // 画笔设置  笔触大小    点的分割节奏
+    open var pointSize: CGFloat = 5
+    open var pointStep: CGFloat = 0.5
     open var forceSensitive: CGFloat = 0
+    
     open var scaleWithCanvas = false
     open var forceOnTap: CGFloat = 1
     open var rotation = Rotation.fixed(0)
     internal var renderColor : MetalColor = MetalColor(red: 0, green: 0, blue: 0, alphe: 1)
+    // 画笔笔触的纹理
     open private(set) weak var texture : MTLTexture?
+    /// 渲染管线描述
     open private(set) var pipelineState : MTLRenderPipelineState!
     
     open var color : UIColor = .black{
@@ -59,7 +64,7 @@ open class MetalBrush {
             updateRenderingColor()
         }
     }
-    open var opacity: CGFloat = 0.3 {
+    open var opacity: CGFloat = 0.1 {
         didSet{
             updateRenderingColor()
         }
@@ -102,14 +107,14 @@ open class MetalBrush {
     private var canvasScale : CGFloat {
         return target?.screenRender?.scale ?? 1
     }
-    
     private var canvasOffset : CGPoint {
         return target?.screenRender?.contentOffset ?? .zero
     }
-    
     open func makeShaderLibrary(from device : MTLDevice) ->MTLLibrary?{
         return device.libraryForMetal()
     }
+    
+    /// 着色器
     open func makeShaderVertexFunction(from library : MTLLibrary) ->MTLFunction?{
         return library.makeFunction(name: "vertex_point_func")
     }
@@ -119,8 +124,6 @@ open class MetalBrush {
         }
         return library.makeFunction(name: "fragment_point_func")
     }
-    
-    
     
     open func setupBlendOptions(for attachment: MTLRenderPipelineColorAttachmentDescriptor) {
         attachment.isBlendingEnabled = true
@@ -150,20 +153,18 @@ open class MetalBrush {
         setupBlendOptions(for: rpd.colorAttachments[0]!)
         pipelineState = try! device.makeRenderPipelineState(descriptor: rpd)
     }
-    
     internal func render(lineStrip : MetalLineStripe, on renderTarget : MetalRenderTarget? = nil){
         let tar = renderTarget ?? target?.screenRender
         guard lineStrip.lines.count > 0 , let target = tar  else {return}
         target.prepareForDraw()
         let commandencoder = target.makeCommandEncoder()
-        
         commandencoder?.setRenderPipelineState(pipelineState)
         
         guard let vertex_buffer = lineStrip.remakeVertexBuffers(rotation: rotation) else { return }
         commandencoder?.setVertexBuffer(vertex_buffer, offset: 0, index: 0)
         commandencoder?.setVertexBuffer(target.uniform_buffer, offset: 0, index: 1)
         commandencoder?.setVertexBuffer(target.transform_buffer, offset: 0, index: 2)
-        if let texture = texture{
+        if let texture = texture {
             commandencoder?.setFragmentTexture(texture, index: 0)
         }
         commandencoder?.drawPrimitives(type: .point, vertexStart: 0, vertexCount: lineStrip.vertexCount)
