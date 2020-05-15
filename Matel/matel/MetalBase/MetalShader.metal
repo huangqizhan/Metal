@@ -135,3 +135,8 @@ fragment float4 fragment_point_func_without_texture(Point point_data [[ stage_in
     return point_data.color;
 }
 
+
+/*
+   使用`stage_in`属性声明的片段函数的输入数量是有限制的。不同功能集的输入限制不同，具体限制在[https://developer.apple.com/metal/Metal-Feature-Set-Tables.pdf](https://developer.apple.com/metal/Metal-Feature-Set-Tables.pdf) 中的Metal功能列表中列出。（输入向量计为`n`个输入标量，其中`n`是向量中的维数。）
+ 
+ */
