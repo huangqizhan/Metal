@@ -153,6 +153,9 @@ open class MetalView: MTKView {
         if let drawable = currentDrawable {
             commanderBuffer?.present(drawable)
         }
+        
+        
+        let computEncoder = commanderBuffer?.makeComputeCommandEncoder()
         commanderBuffer?.commit()
         render.modified = false
     }
