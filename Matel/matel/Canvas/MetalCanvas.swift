@@ -179,7 +179,7 @@ open class MetalCanvas : MetalView {
         actionObserves.canvas(self, didRedrawOn: targrt)
     }
     
-    private func pushPoint(_ point : CGPoint , to bezier : MetalBezierGenerator , force : CGFloat , isEnd : Bool = false){
+    private func pushPoint(_ point : CGPoint , to bezier : MetalBezierGenerator , force : CGFloat , isEnd : Bool = false) {
         var lines : [MetalLine] = []
         let vertecies = bezier.pushPoint(point)
         guard vertecies.count >= 2 else {

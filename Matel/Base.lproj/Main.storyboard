@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Hv-u5-vjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Hv-u5-vjo">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -161,7 +161,44 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhu-de-Ecc" customClass="MetalCanvas" customModule="Matel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-js-ukY">
+                                        <rect key="frame" x="0.0" y="593" width="154" height="97"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2C1-k7-I9p">
+                                                <rect key="frame" x="-2" y="-7" width="156" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="rSliderAction:" destination="SvH-j1-8JA" eventType="valueChanged" id="dAL-Wo-yNa"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vsQ-qd-XeB">
+                                                <rect key="frame" x="-1" y="61" width="156" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="bSliderAction:" destination="SvH-j1-8JA" eventType="valueChanged" id="PKl-W8-r83"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qSa-RZ-sLw">
+                                                <rect key="frame" x="-1" y="30" width="156" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="gSliderAction:" destination="SvH-j1-8JA" eventType="valueChanged" id="14z-vh-oE8"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="154" id="Sx3-xH-vuY"/>
+                                            <constraint firstAttribute="height" constant="97" id="WWa-aA-4gc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="w9h-js-ukY" secondAttribute="bottom" id="Lee-YB-Ddj"/>
+                                    <constraint firstItem="w9h-js-ukY" firstAttribute="leading" secondItem="Zhu-de-Ecc" secondAttribute="leading" id="RNI-8z-Zr7"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -174,10 +211,14 @@
                         <viewLayoutGuide key="safeArea" id="YF6-za-ice"/>
                     </view>
                     <navigationItem key="navigationItem" title="Single" id="AYd-w4-Kce"/>
+                    <connections>
+                        <outlet property="canvas" destination="Zhu-de-Ecc" id="uvP-lv-2mc"/>
+                        <outlet property="colorBgView" destination="w9h-js-ukY" id="voL-9K-wjq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPy-eI-ZFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1922" y="129"/>
+            <point key="canvasLocation" x="-1922.4000000000001" y="128.57142857142858"/>
         </scene>
         <!--Scale & Scroll-->
         <scene sceneID="A0K-ku-KDe">

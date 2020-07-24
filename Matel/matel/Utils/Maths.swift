@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 import simd
 
-/// 顶点
+/// 着色器顶点
 struct Vertex {
     /// 位置坐标
     var position : vector_float4
@@ -22,7 +22,7 @@ struct Vertex {
         self.textCoord = textCoord.toFloat2()
     }
 }
-
+/// 线上的每个点
 struct Point {
     var position : vector_float4
     var color : vector_float4

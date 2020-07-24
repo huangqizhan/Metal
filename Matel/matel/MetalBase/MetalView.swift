@@ -96,14 +96,15 @@ open class MetalView: MTKView {
     private func setRenderTatgetUniformData(){
         let size = drawableSize
         let w = size.width , h = size.height
+        /// 顶点数据
         let vertexes = [
             Vertex(position: CGPoint(x: 0, y: 0), textCoord: CGPoint(x: 0, y: 0)),
             Vertex(position: CGPoint(x: w, y: 0), textCoord: CGPoint(x: 1, y: 0)),
             Vertex(position: CGPoint(x: 0, y: h), textCoord: CGPoint(x: 0, y: 1)),
             Vertex(position: CGPoint(x: w, y: h), textCoord: CGPoint(x: 1, y: 1))
         ]
-        
         render_target_vertex = device?.makeBuffer(bytes: vertexes, length: MemoryLayout<Vertex>.stride * vertexes.count, options: [.cpuCacheModeWriteCombined])
+        
         
         let mritex = Matrix.identify
         mritex.scaling(x: 2 / Float(size.width), y: -2 / Float(size.height), z: 1)
@@ -140,7 +141,6 @@ open class MetalView: MTKView {
 
         let commanderBuffer = commandQueue?.makeCommandBuffer()
         let commandEncoder = commanderBuffer?.makeRenderCommandEncoder(descriptor:renderpassdescriptor)
-
         commandEncoder?.setRenderPipelineState(pipelineState)
         /// 设置顶点着色器的参数
         commandEncoder?.setVertexBuffer(render_target_vertex, offset: 0, index: 0)
@@ -152,7 +152,7 @@ open class MetalView: MTKView {
         commandEncoder?.endEncoding()
         if let drawable = currentDrawable {
             commanderBuffer?.present(drawable)
-        }        
+        }
 //        let computEncoder = commanderBuffer?.makeComputeCommandEncoder()
         commanderBuffer?.commit()
         render.modified = false

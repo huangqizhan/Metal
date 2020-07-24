@@ -76,7 +76,6 @@ open class MetalLineStripe : MetalCanvasElement  {
                 case .random: angle = CGFloat.random(in: -CGFloat.pi ... CGFloat.pi)
                 case .ahead: angle = line.angle
                 }
-                
                 vertexes.append(Point(x: x, y: y, color: line.color ?? color, size: line.pointSize * scale, angle: angle))
             }
         }

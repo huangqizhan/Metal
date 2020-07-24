@@ -13,9 +13,18 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("nativeScale \(UIScreen.main.nativeScale)")
-        print("native ]\(UIScreen.main.nativeBounds.size.height)")
+        let arr : [String] = ["1","2","3","4","5"];
+        let res = arr.first { (str ) -> Bool in
+            let n = Int(str)!
+            if n >= 4{
+                return true
+            }
+            return false
+        }
         
-        
+        guard let s = res  else {
+            return
+        }
+        print("res = \(s)")
     }
 }

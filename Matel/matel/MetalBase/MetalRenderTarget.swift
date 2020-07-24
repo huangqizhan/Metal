@@ -33,8 +33,9 @@ open class MetalRenderTarget {
     internal var pixelFormat: MTLPixelFormat = .bgra8Unorm
     /// 绘图区域
     internal var drawableSize: CGSize
-    /// buffer
+    /// 顶点 buffer
     internal var uniform_buffer: MTLBuffer!
+    /// 顶点平移 buffer
     internal var transform_buffer: MTLBuffer!
     ///渲染编码器描述
     internal var renderPassDescriptor: MTLRenderPassDescriptor?
@@ -51,21 +52,21 @@ open class MetalRenderTarget {
         self.device = device
         self.texture = makeEmptyTexture()
         self.pixelFormat = pixelFormat
-        self.commandQueue = queue
-//        self.commandQueue = self.device?.makeCommandQueue()
+//        self.commandQueue = queue
+        self.commandQueue = self.device?.makeCommandQueue()
         renderPassDescriptor = MTLRenderPassDescriptor()
         let attachment = renderPassDescriptor?.colorAttachments[0]
         attachment?.texture = texture
         attachment?.loadAction = .load
         attachment?.storeAction = .store
     }
-    
+    /// 清空画板
     open func clear(){
         texture = makeEmptyTexture()
         renderPassDescriptor?.colorAttachments[0].texture = texture
         commitCommand()
     }
-    
+    /// 跟新顶点数据
     internal func updateBuffer(width size : CGSize ) {
         self.drawableSize = size
         let metrix = Matrix.identify
@@ -76,19 +77,19 @@ open class MetalRenderTarget {
         
         updateTransformBuffer()
     }
-    
     internal func updateTransformBuffer() {
         let scaleFactor = UIScreen.main.nativeScale
         var scrollTransform = ScrollintTransform(offset: contentOffset * scaleFactor, scale: scale)
         transform_buffer = device?.makeBuffer(bytes: &scrollTransform, length: MemoryLayout<ScrollintTransform>.stride, options: [])
     }
-    
+    /// 创建 command buffer
     internal func prepareForDraw(){
         if commandBuffer == nil {
             commandBuffer = commandQueue?.makeCommandBuffer()
         }
     }
     
+    /// command buffer 编码
     internal func makeCommandEncoder() -> MTLRenderCommandEncoder? {
         guard let commandBuffer = commandBuffer , let rpd = renderPassDescriptor else {
             return nil
@@ -96,12 +97,14 @@ open class MetalRenderTarget {
         return commandBuffer.makeRenderCommandEncoder(descriptor: rpd)
     }
     
+    /// 提交 command
     internal func commitCommand(){
         commandBuffer?.commit()
         commandBuffer = nil
         modified = true
     }
     
+    /// 清空纹理 
     internal func makeEmptyTexture() -> MTLTexture? {
        guard drawableSize.width * drawableSize.height > 0 else {
              return nil
@@ -117,9 +120,8 @@ open class MetalRenderTarget {
 
 /*
  
- MTLVertexDescriptor是用来描述如何组织顶点数据以及如何映射到shader中顶点着色函数的对象。
- 
- 一个MTLVertexDescriptor对象用来配置顶点数据如何在内存中存储，以及映射到vertex shader中的attribute属性上。
+MTLVertexDescriptor是用来描述如何组织顶点数据以及如何映射到shader中顶点着色函数的对象。
+一个MTLVertexDescriptor对象用来配置顶点数据如何在内存中存储，以及映射到vertex shader中的attribute属性上。
  
  
  */
