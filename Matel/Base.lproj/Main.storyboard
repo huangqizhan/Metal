@@ -193,11 +193,28 @@
                                             <constraint firstAttribute="height" constant="97" id="WWa-aA-4gc"/>
                                         </constraints>
                                     </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9yy-7p-nEd">
+                                        <rect key="frame" x="8" y="0.0" width="359" height="32"/>
+                                        <segments>
+                                            <segment title="pen"/>
+                                            <segment title="pencil"/>
+                                            <segment title="brush"/>
+                                            <segment title="glow"/>
+                                            <segment title="claw"/>
+                                            <segment title="eraser"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmengaction:" destination="SvH-j1-8JA" eventType="valueChanged" id="Tpg-zY-0gT"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="9yy-7p-nEd" firstAttribute="top" secondItem="Zhu-de-Ecc" secondAttribute="top" id="4SE-M2-qPI"/>
+                                    <constraint firstAttribute="trailing" secondItem="9yy-7p-nEd" secondAttribute="trailing" constant="8" id="LNB-cU-huq"/>
                                     <constraint firstAttribute="bottom" secondItem="w9h-js-ukY" secondAttribute="bottom" id="Lee-YB-Ddj"/>
                                     <constraint firstItem="w9h-js-ukY" firstAttribute="leading" secondItem="Zhu-de-Ecc" secondAttribute="leading" id="RNI-8z-Zr7"/>
+                                    <constraint firstItem="9yy-7p-nEd" firstAttribute="leading" secondItem="Zhu-de-Ecc" secondAttribute="leading" constant="8" id="uAf-mk-EwA"/>
                                 </constraints>
                             </view>
                         </subviews>

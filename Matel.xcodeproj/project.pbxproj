@@ -39,6 +39,10 @@
 		665CBA9C2464FE23005F8123 /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9B2464FE23005F8123 /* MetalTexture.swift */; };
 		665CBA9E246501F9005F8123 /* MetalRenderTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9D246501F9005F8123 /* MetalRenderTarget.swift */; };
 		665CBAA02465058E005F8123 /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CBA9F2465058E005F8123 /* Maths.swift */; };
+		6689283C24CAD85F007D2597 /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283824CAD85F007D2597 /* glow.png */; };
+		6689283D24CAD85F007D2597 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283924CAD85F007D2597 /* pencil.png */; };
+		6689283E24CAD85F007D2597 /* claw.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283A24CAD85F007D2597 /* claw.png */; };
+		6689283F24CAD85F007D2597 /* brush.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283B24CAD85F007D2597 /* brush.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +80,10 @@
 		665CBA9B2464FE23005F8123 /* MetalTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
 		665CBA9D246501F9005F8123 /* MetalRenderTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalRenderTarget.swift; sourceTree = "<group>"; };
 		665CBA9F2465058E005F8123 /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
+		6689283824CAD85F007D2597 /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
+		6689283924CAD85F007D2597 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		6689283A24CAD85F007D2597 /* claw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = claw.png; sourceTree = "<group>"; };
+		6689283B24CAD85F007D2597 /* brush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brush.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +164,7 @@
 		665CBA8D24641961005F8123 /* matel */ = {
 			isa = PBXGroup;
 			children = (
+				6689283724CAD81F007D2597 /* Texture */,
 				6625A35324691ED00026CAD1 /* Elements */,
 				6625A3502468FBCD0026CAD1 /* Data & Documents */,
 				6625A34B2468E70E0026CAD1 /* Brush */,
@@ -199,6 +208,17 @@
 				6625A3492468E5F90026CAD1 /* MetalSnapShortTarget.swift */,
 			);
 			path = MetalBase;
+			sourceTree = "<group>";
+		};
+		6689283724CAD81F007D2597 /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				6689283B24CAD85F007D2597 /* brush.png */,
+				6689283A24CAD85F007D2597 /* claw.png */,
+				6689283824CAD85F007D2597 /* glow.png */,
+				6689283924CAD85F007D2597 /* pencil.png */,
+			);
+			path = Texture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6689283D24CAD85F007D2597 /* pencil.png in Resources */,
+				6689283C24CAD85F007D2597 /* glow.png in Resources */,
+				6689283E24CAD85F007D2597 /* claw.png in Resources */,
+				6689283F24CAD85F007D2597 /* brush.png in Resources */,
 				665CBA7C2463F437005F8123 /* LaunchScreen.storyboard in Resources */,
 				665CBA792463F437005F8123 /* Assets.xcassets in Resources */,
 				665CBA772463F432005F8123 /* Main.storyboard in Resources */,
