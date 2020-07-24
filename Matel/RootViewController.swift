@@ -13,6 +13,9 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("nativeScale \(UIScreen.main.nativeScale)")
+        print("native ]\(UIScreen.main.nativeBounds.size.height)")
+        
         
     }
 }
