@@ -12,45 +12,51 @@ class SingleViewController: UIViewController {
 
     
     @IBOutlet weak var canvas: MetalCanvas!
+    
+    var brushs : [MetalBrush] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction func segmengaction(_ sender: UISegmentedControl) {
+        
+        
         do {
-            if sender.selectedSegmentIndex == 0 {
-                let pen = canvas.defaultBrush!
-                pen.name = "Pen"
-                pen.opacity = 0.1
-                pen.pointSize = 5
-                pen.pointStep = 0.5
-                pen.color = canvas.currentBrush.color
-                pen.use()
-            }else if (sender.selectedSegmentIndex == 1){
-                let pencil = try registerBrush(with: "pencil")
-                pencil.rotation = .random
-                pencil.pointSize = 3
-                pencil.pointStep = 2
-                pencil.forceSensitive = 0.3
-                pencil.opacity = 1
-                pencil.use()
-            }else if (sender.selectedSegmentIndex == 2){
-                let brush = try registerBrush(with: "brush")
-                brush.rotation = .ahead
-                brush.pointSize = 15
-                brush.pointStep = 2
-                brush.forceSensitive = 1
-                brush.color = canvas.currentBrush.color
-                brush.forceOnTap = 0.5
-                brush.use() 
-            }
+            let pen = canvas.defaultBrush!
+            pen.name = "Pen"
+            pen.opacity = 0.1
+            pen.pointSize = 5
+            pen.pointStep = 0.5
+            pen.color = canvas.currentBrush.color
+            
+            
+            let pencil = try registerBrush(with: "pencil")
+            pencil.rotation = .random
+            pencil.pointSize = 3
+            pencil.pointStep = 2
+            pencil.forceSensitive = 0.3
+            pencil.opacity = 1
+            
+            
+            let brush = try registerBrush(with: "brush")
+            brush.rotation = .ahead
+            brush.pointSize = 15
+            brush.pointStep = 2
+            brush.forceSensitive = 1
+            brush.color = canvas.currentBrush.color
+            brush.forceOnTap = 0.5
+            
+            brushs = [pen,pencil,brush]
         } catch  {
-            print("");
+            
         }
-
     }
-    
-    
+    @IBAction func segmengaction(_ sender: UISegmentedControl) {
+        guard sender.selectedSegmentIndex < brushs.count else {
+            return
+        }
+        let brush = brushs[sender.selectedSegmentIndex]
+        brush.use()
+    }
     private func registerBrush(with imageName: String) throws -> MetalBrush {
         let texture = try canvas.makeTexture(with: UIImage(named: imageName)!.pngData()!)
         return try canvas.registerBrush(name: imageName, textureId: texture.id);
