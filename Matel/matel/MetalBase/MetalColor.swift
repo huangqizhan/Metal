@@ -11,7 +11,7 @@ import Foundation
 import simd
 
 
-//// 颜色
+// Metal 颜色
 public struct MetalColor : Codable{
     
     public internal(set) var red : Float

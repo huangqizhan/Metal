@@ -31,7 +31,7 @@ public struct MetalPan{
     }
 }
 
-
+/// 画笔类型
 open class MetalBrush {
     
     public enum Rotation {
@@ -41,13 +41,15 @@ open class MetalBrush {
     }
     
     open var name : String
-    // 纹理ID
+    // 画笔的纹理ID
     open private(set) var textureId : String?
     // canvas
     open private(set) weak var target : MetalCanvas?
-    // 画笔设置  笔触大小    点的分割节奏
+    // 画笔设置  笔触大小
     open var pointSize: CGFloat = 5
+    // 点的分割节奏
     open var pointStep: CGFloat = 0.5
+    // 触摸强度
     open var forceSensitive: CGFloat = 0
     
     open var scaleWithCanvas = false
@@ -59,11 +61,13 @@ open class MetalBrush {
     /// 渲染管线描述
     open private(set) var pipelineState : MTLRenderPipelineState!
     
+    // 画笔颜色  体现在片段着色器上
     open var color : UIColor = .black{
         didSet{
             updateRenderingColor()
         }
     }
+    // 透明度 
     open var opacity: CGFloat = 0.1 {
         didSet{
             updateRenderingColor()

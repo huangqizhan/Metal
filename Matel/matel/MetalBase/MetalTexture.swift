@@ -10,6 +10,7 @@ import Foundation
 import Metal
 import UIKit
 
+// Metal 纹理
 open class MetalTexture : Hashable{
     
     open private(set) var id : String
@@ -38,7 +39,7 @@ open class MetalTexture : Hashable{
 }
 
 
-extension MetalTexture{
+extension MetalTexture {
     /// ciimage
     func toCIImage() -> CIImage? {
         let image = CIImage(mtlTexture: texture, options: [CIImageOption.colorSpace:CGColorSpaceCreateDeviceRGB()])

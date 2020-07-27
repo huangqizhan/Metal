@@ -18,8 +18,6 @@ class SingleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         do {
             let pen = canvas.defaultBrush!
             pen.name = "Pen"
@@ -35,7 +33,7 @@ class SingleViewController: UIViewController {
             pencil.pointStep = 2
             pencil.forceSensitive = 0.3
             pencil.opacity = 1
-            
+            pencil.color = canvas.currentBrush.color;
             
             let brush = try registerBrush(with: "brush")
             brush.rotation = .ahead
@@ -45,7 +43,27 @@ class SingleViewController: UIViewController {
             brush.color = canvas.currentBrush.color
             brush.forceOnTap = 0.5
             
-            brushs = [pen,pencil,brush]
+            
+            
+            let texture = try canvas.makeTexture(with: UIImage(named: "glow")!.pngData()!)
+            let glow: MetalGlowBrush = try canvas.registerBrush(name: "glow", textureId: texture.id)
+            glow.opacity = 0.05
+            glow.coreProportion = 0.2
+            glow.pointSize = 20
+            glow.rotation = .ahead
+            
+            let claw = try registerBrush(with: "claw")
+            claw.rotation = .ahead
+            claw.pointSize = 30
+            claw.pointStep = 5
+            claw.forceSensitive = 0.1
+            claw.color = canvas.currentBrush.color
+            
+            
+            let easer = try canvas.registerBrush(name: "Easer") as MetalEraser
+            
+            
+            brushs = [pen, pencil ,brush ,glow, claw ,easer ]
         } catch  {
             
         }

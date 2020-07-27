@@ -8,19 +8,19 @@
 
 import UIKit
 
+// 画布
 open class MetalCanvas : MetalView {
-    
+    // 画笔
     open var defaultBrush : MetalBrush!
     
     open private(set) var printer : MetalPrinter!
-    
+    // 触摸笔
     open var isPencilMode : Bool = false {
         didSet{
             isMultipleTouchEnabled = isPencilMode
         }
     }
-    open var useFingersToErase = false
-    
+    //  绘制区域
     open var size : CGSize {
         return drawableSize / contentScaleFactor
     }
@@ -32,12 +32,11 @@ open class MetalCanvas : MetalView {
         actionObserves.clean()
         actionObserves.addObserver(observe)
     }
-    
-    
+    // 画笔的纹理
     open private(set) var textures: [MetalTexture] = []
-    
+    // 当前画笔
     open internal(set) var currentBrush : MetalBrush!
-    
+    // 注册的画笔
     open private(set) var registerBrushs : [MetalBrush] = []
     
     open var paintingGesture: MetalPaintingGestureRecognizer?
@@ -283,6 +282,4 @@ open class MetalCanvas : MetalView {
             return touches.first
         }
     }
-    
-    
 }
