@@ -46,9 +46,9 @@ open class MetalBrush {
     // canvas
     open private(set) weak var target : MetalCanvas?
     // 画笔设置  笔触大小
-    open var pointSize: CGFloat = 5
+    open var pointSize: CGFloat = 4
     // 点的分割节奏
-    open var pointStep: CGFloat = 0.5
+    open var pointStep: CGFloat = 1
     // 触摸强度
     open var forceSensitive: CGFloat = 0
     
@@ -68,7 +68,7 @@ open class MetalBrush {
         }
     }
     // 透明度 
-    open var opacity: CGFloat = 0.1 {
+    open var opacity: CGFloat = 0.3 {
         didSet{
             updateRenderingColor()
         }
@@ -102,7 +102,8 @@ open class MetalBrush {
         let line = MetalLine(begin: (from + canvasOffset)/canvasScale,
                              end: (to + canvasOffset)/canvasScale,
                              pointSize: pointSize * force / scale,
-                             pointStep: pointStep / scale, color: nil)
+                             pointStep: pointStep / scale,
+                             color: uniquecolor ? renderColor : nil)
         return [line]
     }
     open func finishLineStripe(at end : MetalPan) ->[MetalLine]{

@@ -44,7 +44,6 @@ class SingleViewController: UIViewController {
             brush.forceOnTap = 0.5
             
             
-            
             let texture = try canvas.makeTexture(with: UIImage(named: "glow")!.pngData()!)
             let glow: MetalGlowBrush = try canvas.registerBrush(name: "glow", textureId: texture.id)
             glow.opacity = 0.05
@@ -59,11 +58,9 @@ class SingleViewController: UIViewController {
             claw.forceSensitive = 0.1
             claw.color = canvas.currentBrush.color
             
-            
             let easer = try canvas.registerBrush(name: "Easer") as MetalEraser
             
-            
-            brushs = [pen, pencil ,brush ,glow, claw ,easer ]
+            brushs = [pen, pencil ,brush ,glow, claw ,easer]
         } catch  {
             
         }

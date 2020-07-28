@@ -24,7 +24,7 @@ public class MetalGlowBrush: MetalBrush {
     
     public override var pointSize: CGFloat{
         didSet{
-            subBrush.pointSize = coreProportion * pointSize
+            subBrush.pointSize = pointSize * coreProportion
         }
     }
     
@@ -54,13 +54,13 @@ public class MetalGlowBrush: MetalBrush {
     
     public required init(name: String?, textureId: String?, target: MetalCanvas) {
         super.init(name: name, textureId: textureId, target: target)
-        subBrush = MetalBrush(name: name, textureId: nil, target: target)
+        subBrush = MetalBrush(name: self.name + ".sub", textureId: nil, target: target)
         subBrush.color = coreColor
-        subBrush.opacity = 1.0
+        subBrush.opacity = 1
     }
     
     public override func makeLine(from: CGPoint, to: CGPoint, force: CGFloat? = nil, uniquecolor: Bool = false) -> [MetalLine] {
-        let shadowLines = super.makeLine(from: from, to: to, force: force, uniquecolor: uniquecolor);
+        let shadowLines = super.makeLine(from: from, to: to, force: force);
         let delta = (pointSize * (1 - coreProportion)) / 2
         var coreLines: [MetalLine] = []
         while let first = pendingCoreLines.first?.begin, first.distance(to: from) >= delta  {
@@ -69,7 +69,7 @@ public class MetalGlowBrush: MetalBrush {
         // 中间白线
         let lines = subBrush.makeLine(from: from, to: to, force: force, uniquecolor: true)
         pendingCoreLines.append(contentsOf: lines)
-        return shadowLines + lines
+        return shadowLines + coreLines
     }
     
     public override func finishLineStripe(at end: MetalPan) -> [MetalLine] {
