@@ -8,6 +8,17 @@
 
 import UIKit
 
+/*
+ 
+  canvas --------touch ----> [lines]
+   | ^                           |
+   | |                           |
+   | |                           |
+   v |                           v
+ brush ------------------------ line
+ 
+ */
+
 /// 手势拖动的数据结构
 public struct MetalPan{
     var point : CGPoint
