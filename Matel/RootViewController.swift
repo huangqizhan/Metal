@@ -13,18 +13,10 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let arr : [String] = ["1","2","3","4","5"];
-        let res = arr.first { (str ) -> Bool in
-            let n = Int(str)!
-            if n >= 4{
-                return true
-            }
-            return false
-        }
+//        TSwift(name: "")
+//        TSwift(n1: 1.0, n2: 1.0)
+        var s1 : TSwift = TSwift()
+        s1 = s1 * 12.2
         
-        guard let s = res  else {
-            return
-        }
-        print("res = \(s)")
     }
 }

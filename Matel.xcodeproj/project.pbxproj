@@ -43,6 +43,8 @@
 		6689283D24CAD85F007D2597 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283924CAD85F007D2597 /* pencil.png */; };
 		6689283E24CAD85F007D2597 /* claw.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283A24CAD85F007D2597 /* claw.png */; };
 		6689283F24CAD85F007D2597 /* brush.png in Resources */ = {isa = PBXBuildFile; fileRef = 6689283B24CAD85F007D2597 /* brush.png */; };
+		BA06302224CEC2750034F88A /* MetalEraser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06302124CEC2750034F88A /* MetalEraser.swift */; };
+		BA06302424CEC8470034F88A /* MetalGlowBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06302324CEC8470034F88A /* MetalGlowBrush.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		6689283924CAD85F007D2597 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		6689283A24CAD85F007D2597 /* claw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = claw.png; sourceTree = "<group>"; };
 		6689283B24CAD85F007D2597 /* brush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brush.png; sourceTree = "<group>"; };
+		BA06302124CEC2750034F88A /* MetalEraser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalEraser.swift; sourceTree = "<group>"; };
+		BA06302324CEC8470034F88A /* MetalGlowBrush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalGlowBrush.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 			children = (
 				6625A34C2468E7380026CAD1 /* MetalBrush.swift */,
 				6625A35E24694AEE0026CAD1 /* MetalPrinter.swift */,
+				BA06302124CEC2750034F88A /* MetalEraser.swift */,
+				BA06302324CEC8470034F88A /* MetalGlowBrush.swift */,
 			);
 			path = Brush;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				665CBA88246409A5005F8123 /* ScrollViewController.swift in Sources */,
+				BA06302424CEC8470034F88A /* MetalGlowBrush.swift in Sources */,
 				665CBA862464099A005F8123 /* ScaleViewController.swift in Sources */,
 				665CBA9E246501F9005F8123 /* MetalRenderTarget.swift in Sources */,
 				6625A35F24694AEE0026CAD1 /* MetalPrinter.swift in Sources */,
@@ -309,6 +316,7 @@
 				6625A34A2468E5F90026CAD1 /* MetalSnapShortTarget.swift in Sources */,
 				6625A359246937F50026CAD1 /* MetalChartlet.swift in Sources */,
 				6625A3522468FC1C0026CAD1 /* MetalCanvasData.swift in Sources */,
+				BA06302224CEC2750034F88A /* MetalEraser.swift in Sources */,
 				6625A34D2468E7380026CAD1 /* MetalBrush.swift in Sources */,
 				6625A3482468E5BF0026CAD1 /* MetalShader.metal in Sources */,
 				6625A34F2468EFA40026CAD1 /* TSwift.swift in Sources */,

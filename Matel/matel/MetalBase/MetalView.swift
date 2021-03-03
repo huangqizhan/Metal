@@ -11,8 +11,8 @@ import MetalKit
 
 internal let shareDevide = MTLCreateSystemDefaultDevice()
 
+// 主要负责画笔背景绘制
 open class MetalView: MTKView {
-    
     /// 背景渲染器
     internal var screenRender: MetalRenderTarget?
     /// 命令队列

@@ -8,14 +8,17 @@
 
 import UIKit
 
+// 线段
 public struct MetalLine : Codable {
     
+    // 起点 终点
     public internal(set) var begin: CGPoint
     public internal(set) var end: CGPoint
     
+    // 点的大小
     public internal(set) var pointSize : CGFloat
+    // 点的分割节奏
     public internal(set) var pointStep : CGFloat
-    
     
     public private(set) var color : MetalColor?
     

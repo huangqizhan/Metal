@@ -8,7 +8,7 @@
 
 import UIKit
 
-///一个线条
+// 一个线条  包含多个线段
 open class MetalLineStripe : MetalCanvasElement  {
     
     public var index: Int = 0
@@ -16,7 +16,6 @@ open class MetalLineStripe : MetalCanvasElement  {
     public var brushName: String?
     
     public var color: MetalColor
-    
     /// 包含的多条小线段
     public var lines : [MetalLine] = []
     
@@ -52,13 +51,12 @@ open class MetalLineStripe : MetalCanvasElement  {
         }
         return vertex_buffer
     }
+    // 构建顶点数据
     private func remakeBuffer(rotation: MetalBrush.Rotation){
         guard lines.count > 0 else {
             return
         }
-        
         var vertexes: [Point] = []
-        
         lines.forEach { (line) in
             let scale = brush?.target?.contentScaleFactor ?? UIScreen.main.nativeScale
             var line = line
